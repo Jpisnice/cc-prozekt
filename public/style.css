@@ -1,0 +1,326 @@
+/* Common Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Login Page */
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.login-container h1 {
+    text-align: center;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.login-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.login-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#reg{
+    background-color: #1fcf6e;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+
+}
+
+#reg:hover {
+    background-color: hsl(147, 71%, 35%);
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Registration Page */
+.register-container {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.register-container h1 {
+    text-align: center;
+}
+
+.register-container form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.register-container input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.register-container button {
+    background-color: #48b880;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.register-container button:hover {
+    background-color: #3a9e73;
+}
+
+/* Home Page */
+.home-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.home-container h1 {
+    text-align: center;
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+.home-container select,
+.home-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.home-container .submit-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.home-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.home-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Seat Selection Page */
+.seats-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seats-container h1 {
+    text-align: center;
+}
+
+.seat-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 40px);
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.seat.selected {
+    background-color: #5baaff;
+    color: white;
+    border: none;
+}
+
+.proceed-button {
+    margin-top: 20px;
+}
+
+.proceed-button button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.proceed-button button:hover {
+    background-color: #0056b3;
+}
+
+/* Payment Options Page */
+.payment-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.payment-container h1 {
+    text-align: center;
+}
+
+.payment-container form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.payment-container input[type="radio"] {
+    margin-right: 5px;
+}
+
+.payment-container label {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.payment-container button {
+    background-color: #48b880;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.payment-container button:hover {
+    background-color: #3a9e73;
+}
+
+/* Payment Confirmation Page */
+.confirmation-container {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+.confirmation-container h1 {
+    margin-bottom: 20px;
+}
+
+.confirmation-container p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.confirmation-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.confirmation-container button:hover {
+    background-color: #0056b3;
+}
+
+.payment-container h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.payment-details  {
+    display: flex;
+    text-align: center;
+    color: #ffffff;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.payment-container {
+    text-align: center;
+    background-color: #000000;
+}
+
+.payment-details p {
+    color: #ffffff;
+}
+
+.payment-button button {
+    background-color: #ffb700;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+
+.payment-button button:hover {
+    transition: ease-in-out 0.5s;
+    background-color: rgb(214, 155, 6);
+}
+
+#payment-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    color:#ffffff;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="firebase-config.js"></script>
+</head>
+
+<body>
+    <div class="payment-container">
+        <h1>Payment</h1>
+        <div class="payment-details">
+            <p id="movieName">Movie: Loading...</p>
+            <p id="ticketCount">Number of Tickets: Loading...</p>
+            <p id="totalPrice">Total Amount: Loading...</p>
+        </div>
+        <div class="payment-button">
+            <button onclick="window.location.href='paymentoption.html'">Proceed to Payment</button>
+        </div>
+    </div>
+    
+    <script src="payment.js"></script>
+</body>
+
+</html>

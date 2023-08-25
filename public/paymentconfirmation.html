@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="confirmation-container">
+        <h1>Payment Confirmed</h1>
+        <p>Your payment has been successfully processed.</p>
+        <p>Your Booking ID: ABC123</p>
+        <p>You will be redirected to the home page in 3 minutes...</p>
+    </div>
+    <script>
+        setTimeout(function () {
+            window.location.href = 'home.html';
+        }, 10000); // 3000 milliseconds = 3 seconds
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="seats-container">
+        <h1>Select Seats</h1>
+        <div class="seat-grid">
+            <!-- Creating a 5x6 grid of seats using nested loops -->
+            <script>
+                for (let row = 1; row <= 5; row++) {
+                    for (let col = 1; col <= 6; col++) {
+                        document.write(`<div class="seat" onclick="selectSeat(${row},${col})">${row}-${col}</div>`);
+                    }
+                }
+            </script>
+            <script>
+                // selectedseats.html
+                var receivedSeat = parseInt(localStorage.getItem('selectedSeat'));
+                console.log(receivedSeat); // Output: 5 (or the integer value you set)
+
+                const maxSeatCount = receivedSeat; // Use the received data for max seat count
+                const selectedSeats = [];
+
+                function selectSeat(row, col) {
+                    const seatElement = document.querySelector(`.seat:nth-child(${(row - 1) * 6 + col+1})`);
+
+                    if (selectedSeats.includes(`${row}-${col}`)) {
+                        selectedSeats.splice(selectedSeats.indexOf(`${row}-${col}`), 1);
+                        seatElement.classList.remove("selected");
+                    } else {
+                        if (selectedSeats.length < maxSeatCount) {
+                            selectedSeats.push(`${row}-${col}`);
+                            seatElement.classList.add("selected");
+                        } else {
+                            alert("You can't select more seats than you specified.");
+                           
+                        }
+                    }
+                }
+            </script>
+            
+        </div>
+        <div class="proceed-button">
+            <button onclick="window.location.href='payment.html'">Proceed to Payment</button>
+        </div>
+    </div>
+    <script>
+        function proceedToPayment() {
+            const movie = new URLSearchParams(window.location.search).get('movie');
+            const selectedSeatsStr = JSON.stringify(selectedSeats);
+            const showTime = new URLSearchParams(window.location.search).get('showtime');
+            // Here you can send the data to Firestore or handle the payment process
+
+        }
+    </script>
+</body>
+
+</html>

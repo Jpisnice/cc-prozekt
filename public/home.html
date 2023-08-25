@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="firebase-config.js"></script>
+    <script>
+        //TODO: add firebase things
+    </script>
+
+</head>
+
+<body>
+    <div class="home-container">
+        <h1>Welcome to our Movie Booking App</h1>
+        <div class="form-container">
+            <label for="movieSelect">Select Movie:</label>
+            <select id="movieSelect">
+                <option value="movie1">Avengers End Game</option>
+                <option value="movie2">Inception</option>
+                <option value="movie3">Openheimer</option>
+                <option value="movie4">Creed III</option>
+            </select>
+            <label for="seatCount">Number of Seats:</label>
+            <input type="number" id="seatCount" min="1" max="10" value="1" required>
+            <label for="showTime">Show Timing:</label>
+            <input type="text" id="showTime" placeholder="Enter show timing" required>
+        </div>
+        <div class="submit-button">
+            <button onclick="submitForm()">Continue to Seat selection</button>
+        </div>
+    </div>
+    
+    <script>
+        function submitForm() {
+            const movieSelect = document.getElementById("movieSelect").value;
+            const seatCount = parseInt(document.getElementById("seatCount").value);
+            const showTime = document.getElementById("showTime").value;
+
+           
+            // home.html
+            const selectedSeat = seatCount; // Replace with the actual integer value you want to transfer
+            localStorage.setItem('selectedSeat', selectedSeat);
+            window.location.href = 'selectseats.html';
+
+            //window.location.href = `selectseats.html?movie=${movieSelect}&seats=${seatCount}&showtime=${showTime}`;
+            
+        }
+    </script>
+</body>
+
+</html>

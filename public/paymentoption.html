@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="payment-container">
+        <h1>Select Payment Option</h1>
+        <form id="payment-form">
+            <label>
+                <input type="radio" name="paymentOption" value="upi"> UPI
+            </label>
+            <label>
+                <input type="radio" name="paymentOption" value="debitCard"> Debit Card
+            </label>
+            <label>
+                <input type="radio" name="paymentOption" value="creditCard"> Credit Card
+            </label>
+            <label>
+                <input type="radio" name="paymentOption" value="netBanking"> Net Banking
+            </label>
+            <button type="submit">Continue</button>
+        </form>
+    </div>
+    <script>
+        const paymentForm = document.getElementById('payment-form');
+
+        paymentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get the selected payment option
+            const selectedOption = document.querySelector('input[name="paymentOption"]:checked');
+
+            if (!selectedOption) {
+                alert("Please select a payment option.");
+                return;
+            }
+
+            const paymentOption = selectedOption.value;
+            // Redirect to confirmation.html with the selected payment option
+            window.location.href = `paymentconfirmation.html`;
+        });
+    </script>
+</body>
+
+</html>
