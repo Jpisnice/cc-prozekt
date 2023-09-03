@@ -1,0 +1,24 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/login.html"
+      }
+    ],
+    "forceSSL": true
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

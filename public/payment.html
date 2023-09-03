@@ -21,7 +21,43 @@
             <button onclick="window.location.href='paymentoption.html'">Proceed to Payment</button>
         </div>
     </div>
-    
+    <script>
+         const user = firebase.auth().currentUser;
+
+            if (user) {
+                const userId = user.uid;
+
+                // Access the Firestore document associated with the current user
+                const firestore = firebase.firestore();
+                const usersCollection = firestore.collection("users");
+                const userDocument = usersCollection.doc(userId);
+                const movieNameElement = document.getElementById("movieName");
+                const ticketCountElement = document.getElementById("ticketCount");
+                const totalPriceElement = document.getElementById("totalPrice");
+
+                // Retrieve the user's data
+                userDocument.get()
+                    .then((doc) => {
+                        if (doc.exists) {
+                            const userData = doc.data();
+                            console.log("User Data:", userData);
+                            movieNameElement.textContent = userData.movieName;
+                            var ticks= parseInt(userData.ticketCount);
+                            ticketCountElement.textContent = ticks;
+                            totalPriceElement.textContent = ticks*150;
+                            // Now you can use the userData as needed on your new web page
+                        } else {
+                            console.log("No such document!");
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error getting document:", error);
+                    });
+            } else {
+                // Handle the case where the user is not authenticated
+                console.log("User is not authenticated.");
+            }
+    </script>
     <script src="payment.js"></script>
 </body>
 

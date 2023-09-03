@@ -1,0 +1,19 @@
+Collection: users
+  Document: [user_uid_1]
+    Fields:
+      - ticketCount: 5
+      - showTiming: 3
+      - movieName: "Inception"
+
+  Document: [user_uid_2]
+    Fields:
+      - ticketCount: 8
+      - showTiming: 2
+      - movieName: "Avengers: Endgame"
+
+  Document: [user_uid_3]
+    Fields:
+      - ticketCount: 3
+      - showTiming: 1
+      - movieName: "Spider-Man: Far From Home"
+

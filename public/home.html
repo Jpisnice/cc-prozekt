@@ -6,14 +6,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
-    <script src="firebase-config.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics-compat.js"></script>
+    <script src="firebase-config.js"></script> -->
     <script>
         //TODO: add firebase things
     </script>
 
 </head>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-firestore.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyD37MTUUiQ2g1jdPRigN3vX_2DwHKxlQ20",
+        authDomain: "cloudcomputing-81292.firebaseapp.com",
+        projectId: "cloudcomputing-81292",
+        storageBucket: "cloudcomputing-81292.appspot.com",
+        messagingSenderId: "146214611497",
+        appId: "1:146214611497:web:e0369673cf58918c03ca38",
+        measurementId: "G-09PFV472CQ"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const analytics = getAnalytics(app);
+    const auth=getAuth();
+
+    // Listen for changes in the user's authentication state
+    // onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //         // User is signed in, and you can access their UID
+    //         const uid = user.uid;
+    //         console.log("User UID:", uid);
+    //     } else {
+    //         // User is signed out or not authenticated
+    //         console.log("User is not signed in.");
+    //     }
+    // });
+    // Step 3: Store user-specific data in Firestore
+    // Create a reference to the users collection and the document for the current user
+
+
+
+    // function submitForm() {
+    //     const movieSelect = document.getElementById("movieSelect");
+    //     const seatCount = document.getElementById("seatCount").value;
+    //     const showTime = document.getElementById("showTime").value;
+    //     const movieName = movieSelect.options[movieSelect.selectedIndex].text;
+
+    //     // Get the currently authenticated user
+    //     const user = auth.currentUser;
+
+    //     if (user) {
+    //         // User is signed in, and you can access their UID
+    //         const uid = user.uid;
+    //         console.log("User UID:", uid);
+
+    //         // Define the data to store for each user
+    //         const userData = {
+    //             ticketCount: parseInt(seatCount),
+    //             showTiming: showTime,
+    //             movieName: movieName
+    //         };
+
+    //         // Set the user-specific data in the Firestore document
+    //         db.collection("users").doc(uid).set(userData)
+    //             .then(() => {
+    //                 alert("Entries Saved");
+    //             })
+    //             .catch((error) => {
+    //                 alert("Error writing document: ", error);
+    //             });
+    //     } else {
+    //         // User is not signed in; handle this case as needed
+    //         console.log("User is not signed in.");
+    //     }
+    // }
+
+</script>
+
+<script>
+    window.auth = auth;
+    function submitForm() {
+        const movieSelect = document.getElementById("movieSelect");
+        const seatCount = document.getElementById("seatCount").value;
+        const showTime = document.getElementById("showTime").value;
+        const movieName = movieSelect.options[movieSelect.selectedIndex].text;
+
+        // Get the currently authenticated user
+        const user = auth.currentUser;
+
+        if (user) {
+            // User is signed in, and you can access their UID
+            const uid = user.uid;
+            console.log("User UID:", uid);
+
+            // Define the data to store for each user
+            const userData = {
+                ticketCount: parseInt(seatCount),
+                showTiming: showTime,
+                movieName: movieName
+            };
+
+            // Set the user-specific data in the Firestore document
+            db.collection("users").doc(uid).set(userData)
+                .then(() => {
+                    alert("Entries Saved");
+                })
+                .catch((error) => {
+                    alert("Error writing document: ", error);
+                });
+        } else {
+            // User is not signed in; handle this case as needed
+            console.log("User is not signed in.");
+        }
+    }
+</script>
 
 <body>
+    
+    <div class="home-outer">
+    <div class="home-video">
+    <!-- <iframe width="110%" height="110%" src="https://www.youtube.com/embed/aG01KIXWrbU?si=63DgN7tQHSFG8PI5&amp;controls=0"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe> -->
+        <div style="width:100%;height:0px;position:relative;padding-bottom:56.250%;"><iframe
+                src="https://streamable.com/e/sjm0la" frameborder="0" width="100%" height="100%" allowfullscreen
+                style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe></div>
+    </div>
     <div class="home-container">
         <h1>Welcome to our Movie Booking App</h1>
         <div class="form-container">
@@ -33,23 +166,8 @@
             <button onclick="submitForm()">Continue to Seat selection</button>
         </div>
     </div>
+    </div>
     
-    <script>
-        function submitForm() {
-            const movieSelect = document.getElementById("movieSelect").value;
-            const seatCount = parseInt(document.getElementById("seatCount").value);
-            const showTime = document.getElementById("showTime").value;
-
-           
-            // home.html
-            const selectedSeat = seatCount; // Replace with the actual integer value you want to transfer
-            localStorage.setItem('selectedSeat', selectedSeat);
-            window.location.href = 'selectseats.html';
-
-            //window.location.href = `selectseats.html?movie=${movieSelect}&seats=${seatCount}&showtime=${showTime}`;
-            
-        }
-    </script>
 </body>
 
 </html>
